@@ -1,7 +1,15 @@
 {
     "name": "aliziodev/laravel-wilayah-logos",
     "description": "Addon asset logo/lambang daerah Indonesia (Provinsi dan Kab/Kota) untuk package aliziodev/laravel-wilayah.",
-    "keywords": ["laravel", "indonesia", "wilayah", "logo", "lambang", "daerah", "asset"],
+    "keywords": [
+        "laravel",
+        "indonesia",
+        "wilayah",
+        "logo",
+        "lambang",
+        "daerah",
+        "asset"
+    ],
     "homepage": "https://github.com/aliziodev/laravel-wilayah-logos",
     "license": "MIT",
     "type": "library",
@@ -46,5 +54,6 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
-    }
+    },
+    "version": "1.0.1"
 }
