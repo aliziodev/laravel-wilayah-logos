@@ -18,9 +18,15 @@ abstract class TestCase extends OrchestraTestCase
 
     protected function defineDatabaseMigrations(): void
     {
-        $this->loadMigrationsFrom(
-            realpath(__DIR__.'/../../laravel-wilayah/src/Database/Migrations')
-        );
+        $coreMigrationPaths = [
+            realpath(__DIR__.'/../../laravel-wilayah/src/Database/Migrations'),
+            realpath(__DIR__.'/../vendor/aliziodev/laravel-wilayah/src/Database/Migrations'),
+        ];
+
+        foreach (array_filter($coreMigrationPaths) as $path) {
+            $this->loadMigrationsFrom($path);
+            break;
+        }
     }
 
     protected function getEnvironmentSetUp($app): void
