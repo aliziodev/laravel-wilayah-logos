@@ -10,6 +10,16 @@ return [
         'branch' => 'main',
         'hash' => 'unknown',
     ],
-    'downloaded' => 1098,
-    'skipped' => 0,
+    'asset' => [
+        'name' => 'wilayah-logos.zip',
+        'url' => '',
+        'format' => 'zip',
+        'size_bytes' => 0,
+    ],
+    'counts' => [
+        'prov' => 76,
+        'kab' => 1022,
+        'total' => 1098,
+        'missing' => 0,
+    ],
 ];
