@@ -1,0 +1,157 @@
+PHPUnit 11.5.55 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.0
+Configuration: C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\phpunit.xml
+
+EEEEEE                                                              6 / 6 (100%)
+
+Time: 00:00.529, Memory: 38.00 MB
+
+Logos (Aliziodev\WilayahLogos\Tests\Feature\Logos)
+ ✘ Province memiliki macro logoPath
+   │
+   │ Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: provinces (Connection: testing, Database: :memory:, SQL: insert into "provinces" ("code", "name", "created_at", "updated_at") values (32, JAWA BARAT, 2026-03-06 20:18:15, 2026-03-06 20:18:15))
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │  
+   │ Caused by:
+   │ PDOException: SQLSTATE[HY000]: General error: 1 no such table: provinces
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │
+ ✘ Province logoPath thumb menggunakan folder thumbs
+   │
+   │ Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: provinces (Connection: testing, Database: :memory:, SQL: insert into "provinces" ("code", "name", "created_at", "updated_at") values (32, JAWA BARAT, 2026-03-06 20:18:15, 2026-03-06 20:18:15))
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │  
+   │ Caused by:
+   │ PDOException: SQLSTATE[HY000]: General error: 1 no such table: provinces
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │
+ ✘ Regency memiliki macro logoPath
+   │
+   │ Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: provinces (Connection: testing, Database: :memory:, SQL: insert into "provinces" ("code", "name", "created_at", "updated_at") values (32, JAWA BARAT, 2026-03-06 20:18:15, 2026-03-06 20:18:15))
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │  
+   │ Caused by:
+   │ PDOException: SQLSTATE[HY000]: General error: 1 no such table: provinces
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │
+ ✘ Regency kode prov diambil dari kode kabupaten
+   │
+   │ Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: provinces (Connection: testing, Database: :memory:, SQL: insert into "provinces" ("code", "name", "created_at", "updated_at") values (32, JAWA BARAT, 2026-03-06 20:18:15, 2026-03-06 20:18:15))
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │  
+   │ Caused by:
+   │ PDOException: SQLSTATE[HY000]: General error: 1 no such table: provinces
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │
+ ✘ Province logoUrl mengembalikan null jika file tidak ada
+   │
+   │ Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: provinces (Connection: testing, Database: :memory:, SQL: insert into "provinces" ("code", "name", "created_at", "updated_at") values (32, JAWA BARAT, 2026-03-06 20:18:15, 2026-03-06 20:18:15))
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │  
+   │ Caused by:
+   │ PDOException: SQLSTATE[HY000]: General error: 1 no such table: provinces
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │
+ ✘ Regency logoUrl mengembalikan null jika file tidak ada
+   │
+   │ Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: provinces (Connection: testing, Database: :memory:, SQL: insert into "provinces" ("code", "name", "created_at", "updated_at") values (32, JAWA BARAT, 2026-03-06 20:18:15, 2026-03-06 20:18:15))
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │  
+   │ Caused by:
+   │ PDOException: SQLSTATE[HY000]: General error: 1 no such table: provinces
+   │
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:578
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:827
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:794
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:573
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Connection.php:537
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:4091
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\TestCase.php:41
+   │ C:\Users\muhan\Desktop\laravel-packages\laravel-wilayah-logos\tests\Feature\LogosTest.php:14
+   │
+
+ERRORS!
+Tests: 6, Assertions: 0, Errors: 6, PHPUnit Deprecations: 6.

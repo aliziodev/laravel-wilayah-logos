@@ -1,0 +1,116 @@
+name: Sync Upstream Logos
+
+on:
+  schedule:
+    - cron: '0 4 * * *'   # 04:00 UTC setiap hari
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Cek hash upstream logos (branch main)
+        id: check
+        run: |
+          UPSTREAM_HASH=$(curl -sf \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/cahyadsn/wilayah_logo/commits/main" \
+            | php -r '$data = json_decode(stream_get_contents(STDIN), true); echo $data["sha"] ?? "null";')
+
+          CURRENT_HASH=$(php -r "
+            \$v = @include 'assets/version.php';
+            echo \$v['source_hash'] ?? trim(@file_get_contents('assets/version.txt')) ?: 'none';
+          ")
+
+          echo "upstream_hash=$UPSTREAM_HASH" >> $GITHUB_OUTPUT
+          echo "current_hash=$CURRENT_HASH"   >> $GITHUB_OUTPUT
+
+          if [ "$UPSTREAM_HASH" = "null" ]; then
+            echo "Gagal membaca hash upstream dari GitHub API."
+            exit 1
+          fi
+
+          if [ "$UPSTREAM_HASH" != "$CURRENT_HASH" ]; then
+            echo "changed=true"  >> $GITHUB_OUTPUT
+            echo "📦 Logos berubah: $CURRENT_HASH → $UPSTREAM_HASH"
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "✅ Logos sudah up-to-date."
+          fi
+
+      - name: Set release metadata
+        if: steps.check.outputs.changed == 'true'
+        id: meta
+        run: |
+          cp assets/version.php /tmp/logos-version-before.php 2>/dev/null || true
+          echo "release_date=$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
+
+      - name: Download & Update assets
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          php .github/scripts/copy-assets.php \
+            "https://raw.githubusercontent.com/cahyadsn/wilayah_logo/refs/heads/main"
+
+      - name: Bump versi
+        if: steps.check.outputs.changed == 'true'
+        id: version
+        run: |
+          CURRENT=$(php -r "
+            \$c = json_decode(file_get_contents('composer.json'), true);
+            echo \$c['version'] ?? '1.0.0';
+          ")
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
+          NEW_VERSION="$MAJOR.$MINOR.$((PATCH + 1))"
+          echo "current_version=$CURRENT" >> $GITHUB_OUTPUT
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+          php -r "
+            \$c = json_decode(file_get_contents('composer.json'), true);
+            \$c['version'] = '$NEW_VERSION';
+            file_put_contents('composer.json', json_encode(\$c, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+          "
+
+      - name: Generate changelog and release notes
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          php .github/scripts/generate_changelog.php \
+            /tmp/logos-version-before.php \
+            assets/version.php \
+            CHANGELOG.md \
+            .github/release-notes.md \
+            "${{ steps.version.outputs.current_version }}" \
+            "${{ steps.version.outputs.new_version }}"
+
+      - name: Commit & Push
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/ composer.json CHANGELOG.md
+          git commit -m "assets: sync logos $(date +%Y-%m-%d) [skip ci]
+
+          Source: cahyadsn/wilayah_logo@${{ steps.check.outputs.upstream_hash }}"
+          git push
+
+      - name: Buat GitHub Release
+        if: steps.check.outputs.changed == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.new_version }}
+          name: "v${{ steps.version.outputs.new_version }} - Logos Sync ${{ steps.meta.outputs.release_date }}"
+          body_path: .github/release-notes.md
+          generate_release_notes: false
