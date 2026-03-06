@@ -48,7 +48,8 @@ $skipped    = 0;
 echo "[prov] Mengunduh logo provinsi...\n";
 foreach ($PROV_CODES as $code) {
     foreach (['img', 'thumbs'] as $type) {
-        $src  = "{$baseUrl}/prov/{$type}/{$code}.png";
+        $filename = $type === 'thumbs' ? "{$code}_thumbs.png" : "{$code}.png";
+        $src  = "{$baseUrl}/prov/{$type}/{$filename}";
         $dest = ASSETS_DIR . "/prov/{$type}/{$code}.png";
 
         if (downloadFile($src, $dest, $isUrl)) {
@@ -71,7 +72,8 @@ foreach ($PROV_CODES as $provCode) {
         $kabCode = sprintf('%s.%02d', $provCode, $i);
 
         foreach (['img', 'thumbs'] as $type) {
-            $src  = "{$baseUrl}/kab/{$provCode}/{$type}/{$kabCode}.png";
+            $filename = $type === 'thumbs' ? "{$kabCode}_thumbs.png" : "{$kabCode}.png";
+            $src  = "{$baseUrl}/kab/{$provCode}/{$type}/{$filename}";
             $dest = ASSETS_DIR . "/kab/{$provCode}/{$type}/{$kabCode}.png";
 
             if (downloadFile($src, $dest, $isUrl)) {
