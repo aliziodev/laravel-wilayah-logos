@@ -3,7 +3,7 @@
 return [
     'version' => '2026.03.06',
     'data_date' => '2026-03-06',
-    'generated_at' => '2026-03-06T23:24:00+00:00',
+    'generated_at' => '2026-03-06T23:58:56+00:00',
     'source_hash' => 'unknown',
     'source' => [
         'repo' => 'cahyadsn/wilayah_logo',
@@ -14,12 +14,11 @@ return [
         'name' => 'wilayah-logos.zip',
         'url' => '',
         'format' => 'zip',
-        'size_bytes' => 0,
+        'size_bytes' => 233863774,
     ],
     'counts' => [
         'prov' => 76,
         'kab' => 1022,
         'total' => 1098,
-        'missing' => 0,
     ],
 ];

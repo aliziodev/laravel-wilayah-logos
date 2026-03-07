@@ -15,10 +15,15 @@ $current = loadVersionFile($currentVersionPath);
 $releaseDate = $current['data_date'] ?? gmdate('Y-m-d');
 $oldHash = shortHash($previous['source']['hash'] ?? $previous['source_hash'] ?? 'unknown');
 $newHash = shortHash($current['source']['hash'] ?? $current['source_hash'] ?? 'unknown');
-$oldDownloaded = (int) ($previous['downloaded'] ?? 0);
-$newDownloaded = (int) ($current['downloaded'] ?? 0);
-$oldSkipped = (int) ($previous['skipped'] ?? 0);
-$newSkipped = (int) ($current['skipped'] ?? 0);
+$oldDownloaded = (int) ($previous['counts']['total'] ?? $previous['downloaded'] ?? 0);
+$newDownloaded = (int) ($current['counts']['total'] ?? $current['downloaded'] ?? 0);
+$oldProv = (int) ($previous['counts']['prov'] ?? 0);
+$newProv = (int) ($current['counts']['prov'] ?? 0);
+$oldKab = (int) ($previous['counts']['kab'] ?? 0);
+$newKab = (int) ($current['counts']['kab'] ?? 0);
+$assetName = (string) ($current['asset']['name'] ?? 'wilayah-logos.zip');
+$assetSize = (int) ($current['asset']['size_bytes'] ?? 0);
+$assetSizeLabel = formatBytes($assetSize);
 
 $entry = implode("\n", [
     "## [{$newPackageVersion}] — {$releaseDate}",
@@ -29,7 +34,9 @@ $entry = implode("\n", [
     '',
     '### Statistik',
     '- Downloaded assets: ' . $oldDownloaded . ' -> ' . $newDownloaded . ' (' . formatDelta($newDownloaded - $oldDownloaded) . ')',
-    '- Skipped assets: ' . $oldSkipped . ' -> ' . $newSkipped . ' (' . formatDelta($newSkipped - $oldSkipped) . ')',
+    '- Province assets: ' . $oldProv . ' -> ' . $newProv . ' (' . formatDelta($newProv - $oldProv) . ')',
+    '- Regency assets: ' . $oldKab . ' -> ' . $newKab . ' (' . formatDelta($newKab - $oldKab) . ')',
+    "- Asset archive: `{$assetName}` ({$assetSizeLabel})",
     '',
 ]);
 
@@ -44,7 +51,9 @@ $releaseNotes = implode("\n", [
     '',
     '### Statistik Asset',
     '- Downloaded assets: ' . $oldDownloaded . ' -> ' . $newDownloaded . ' (' . formatDelta($newDownloaded - $oldDownloaded) . ')',
-    '- Skipped assets: ' . $oldSkipped . ' -> ' . $newSkipped . ' (' . formatDelta($newSkipped - $oldSkipped) . ')',
+    '- Province assets: ' . $oldProv . ' -> ' . $newProv . ' (' . formatDelta($newProv - $oldProv) . ')',
+    '- Regency assets: ' . $oldKab . ' -> ' . $newKab . ' (' . formatDelta($newKab - $oldKab) . ')',
+    "- Asset archive: `{$assetName}` ({$assetSizeLabel})",
     '',
     '### Update di project Anda',
     '```bash',
@@ -91,6 +100,19 @@ function formatDelta(int $delta): string
     }
 
     return (string) $delta;
+}
+
+function formatBytes(int $bytes): string
+{
+    if ($bytes <= 0) {
+        return '0 B';
+    }
+
+    $units = ['B', 'KB', 'MB', 'GB'];
+    $power = min((int) floor(log($bytes, 1024)), count($units) - 1);
+    $value = $bytes / (1024 ** $power);
+
+    return number_format($value, $power === 0 ? 0 : 2) . ' ' . $units[$power];
 }
 
 function injectChangelogEntry(string $contents, string $entry, string $newVersion): string

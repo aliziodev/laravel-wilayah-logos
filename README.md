@@ -2,6 +2,8 @@
 
 Addon **asset logo/lambang daerah** Indonesia (Provinsi dan Kab/Kota) untuk package [`aliziodev/laravel-wilayah`](https://github.com/aliziodev/laravel-wilayah).
 
+Dataset logo tidak lagi disimpan sebagai ribuan file PNG di source repo. Package ini memakai manifest ringan di repo dan archive logo (`zip`) yang diunduh saat diperlukan.
+
 ## Requirements
 
 ```bash
@@ -12,8 +14,6 @@ composer require aliziodev/laravel-wilayah-logos
 
 ```bash
 php artisan logos:publish
-# atau
-php artisan vendor:publish --tag=wilayah-logos
 ```
 
 Asset akan tersedia di `public/vendor/wilayah/logos/`.
@@ -56,6 +56,13 @@ public/vendor/wilayah/logos/
     │   └── thumbs/
     └── ...
 ```
+
+## Cara Kerja Asset
+
+- Repo package hanya menyimpan metadata kecil di `assets/version.php`
+- GitHub Actions membangun archive logo sebagai release asset `.zip`
+- Saat `logos:publish` dijalankan, package akan memakai archive lokal yang ada atau mengunduh release asset yang sesuai
+- Archive diekstrak ke storage lalu dipublish ke `public/vendor/wilayah/logos`
 
 ## License
 

@@ -2,8 +2,8 @@
 
 namespace Aliziodev\WilayahLogos\Commands;
 
+use Aliziodev\WilayahLogos\Support\LogoAssetManager;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
 class LogosPublishCommand extends Command
 {
@@ -12,25 +12,20 @@ class LogosPublishCommand extends Command
 
     protected $description = 'Publish asset logo/lambang daerah ke direktori public.';
 
+    public function __construct(private readonly LogoAssetManager $assetManager)
+    {
+        parent::__construct();
+    }
+
     public function handle(): int
     {
         $this->info('📸 Publishing logo/lambang daerah...');
 
-        $args = [
-            '--tag' => 'wilayah-logos',
-            '--provider' => 'Aliziodev\\WilayahLogos\\LogosServiceProvider',
-        ];
+        $publicPath = $this->assetManager->publishToPublic((bool) $this->option('force'));
 
-        if ($this->option('force')) {
-            $args['--force'] = true;
-        }
-
-        Artisan::call('vendor:publish', $args);
-
-        $this->info(Artisan::output());
-        $this->info('✅ Logo berhasil di-publish ke public/vendor/wilayah/logos/');
+        $this->info("✅ Logo berhasil di-publish ke {$publicPath}");
         $this->comment('Akses via: asset("vendor/wilayah/logos/prov/img/11.png")');
-        $this->comment('Atau via model: $province->logoUrl()');
+        $this->comment('Atau via model: $province->logoUrl() / $regency->logoUrl()');
 
         return self::SUCCESS;
     }
