@@ -3,7 +3,7 @@
 return array (
   'version' => '2026.03.07',
   'data_date' => '2026-03-07',
-  'generated_at' => '2026-03-07T00:11:11+00:00',
+  'generated_at' => '2026-03-07T00:36:53+00:00',
   'source_hash' => '43dad835e46eb21730291979a2f8fe45af68fac1',
   'source' => 
   array (
@@ -13,10 +13,10 @@ return array (
   ),
   'asset' => 
   array (
-    'name' => 'wilayah-logos-v{1.0.2}.zip',
-    'url' => 'https://github.com/aliziodev/laravel-wilayah-logos/releases/download/v{1.0.2}/wilayah-logos-v{1.0.2}.zip',
+    'name' => 'wilayah-logos-v1.0.3.zip',
+    'url' => 'https://github.com/aliziodev/laravel-wilayah-logos/releases/download/v1.0.3/wilayah-logos-v1.0.3.zip',
     'format' => 'zip',
-    'size_bytes' => false,
+    'size_bytes' => 233863774,
   ),
   'counts' => 
   array (
