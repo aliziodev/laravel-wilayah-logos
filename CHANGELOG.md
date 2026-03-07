@@ -11,6 +11,19 @@ dan package ini mengikuti [Semantic Versioning](https://semver.org/lang/id/).
 
 ---
 
+## [1.0.2] — 2026-03-07
+
+### Asset Sync
+- Package version: `1.0.1` -> `1.0.2`
+- Upstream `cahyadsn/wilayah_logo`: `unknown` -> `43dad835e46e`
+
+### Statistik
+- Downloaded assets: 1098 -> 1098 (0)
+- Province assets: 76 -> 76 (0)
+- Regency assets: 1022 -> 1022 (0)
+- Asset archive: `wilayah-logos-v{1.0.2}.zip` (0 B)
+---
+
 ## [1.0.1] — 2026-03-06
 
 ### Asset Sync
@@ -22,5 +35,6 @@ dan package ini mengikuti [Semantic Versioning](https://semver.org/lang/id/).
 - Skipped assets: 0 -> 0 (0)
 ---
 
-[Unreleased]: https://github.com/aliziodev/laravel-wilayah-logos/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/aliziodev/laravel-wilayah-logos/compare/v1.0.2...HEAD
 [1.0.1]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.1
+[1.0.2]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.2
