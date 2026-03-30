@@ -11,6 +11,12 @@ dan package ini mengikuti [Semantic Versioning](https://semver.org/lang/id/).
 
 ---
 
+## [1.0.4] — 2026-03-30
+
+### Code Changes
+- feat: add automated release workflow for code changes and update testbench dependency to ^11.0 (afd8339)
+---
+
 ## [1.0.3] — 2026-03-07
 
 ### Asset Sync
@@ -48,7 +54,8 @@ dan package ini mengikuti [Semantic Versioning](https://semver.org/lang/id/).
 - Skipped assets: 0 -> 0 (0)
 ---
 
-[Unreleased]: https://github.com/aliziodev/laravel-wilayah-logos/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/aliziodev/laravel-wilayah-logos/compare/v1.0.4...HEAD
 [1.0.1]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.1
 [1.0.2]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.2
 [1.0.3]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.3
+[1.0.4]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.4
