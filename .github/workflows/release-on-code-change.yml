@@ -48,9 +48,9 @@ jobs:
 
           echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
 
-          # Cek perubahan file kode (bukan file data/ dan CHANGELOG.md dan release-notes)
+          # Cek perubahan file kode (bukan file assets/ dan CHANGELOG.md dan release-notes)
           CHANGED=$(git diff --name-only "${LAST_TAG}...HEAD" -- \
-            ':!data/' \
+            ':!assets/' \
             ':!CHANGELOG.md' \
             ':!.github/release-notes.md' \
           )
@@ -72,7 +72,7 @@ jobs:
           CURRENT="${CURRENT_TAG#v}"
 
           if [ -z "$CURRENT" ] || [ "$CURRENT" = "$CURRENT_TAG" ]; then
-            CURRENT="1.0.3"
+            CURRENT="1.0.4"
           fi
 
           IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
@@ -92,12 +92,12 @@ jobs:
             LOG_RANGE="${LAST_TAG}...HEAD"
           fi
 
-          # Ambil commit log, kecuali commit data sync dan release bot
+          # Ambil commit log, kecuali commit assets sync dan release bot
           COMMITS=$(git log "$LOG_RANGE" \
             --pretty=format:"- %s (%h)" \
             --no-merges \
             | grep -v '\[skip ci\]' \
-            | grep -v '^- data:' \
+            | grep -v '^- assets:' \
             | grep -v '^- chore: release' \
             || true)
 

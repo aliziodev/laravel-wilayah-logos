@@ -175,6 +175,7 @@ class LogoAssetManager
 
             if (is_dir($sourcePath)) {
                 $this->copyDirectory($sourcePath, $destinationPath);
+
                 continue;
             }
 
@@ -202,6 +203,7 @@ class LogoAssetManager
 
             if (is_dir($path)) {
                 $this->deleteDirectory($path);
+
                 continue;
             }
 
