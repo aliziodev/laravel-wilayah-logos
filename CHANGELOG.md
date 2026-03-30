@@ -11,6 +11,12 @@ dan package ini mengikuti [Semantic Versioning](https://semver.org/lang/id/).
 
 ---
 
+## [1.0.5] — 2026-03-30
+
+### Code Changes
+- feat: implement automated release workflow and LogoAssetManager for remote asset handling (254f207)
+---
+
 ## [1.0.4] — 2026-03-30
 
 ### Code Changes
@@ -54,8 +60,9 @@ dan package ini mengikuti [Semantic Versioning](https://semver.org/lang/id/).
 - Skipped assets: 0 -> 0 (0)
 ---
 
-[Unreleased]: https://github.com/aliziodev/laravel-wilayah-logos/compare/v1.0.4...HEAD
+[Unreleased]: https://github.com/aliziodev/laravel-wilayah-logos/compare/v1.0.5...HEAD
 [1.0.1]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.1
 [1.0.2]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.2
 [1.0.3]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.3
 [1.0.4]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.4
+[1.0.5]: https://github.com/aliziodev/laravel-wilayah-logos/releases/tag/v1.0.5
